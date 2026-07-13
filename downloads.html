@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markzira | Download Center</title>
+    <title>Markzira | مركز التحميل</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
     <nav id="global-nav"></nav>
 
     <div class="container page-layout">
         <main class="main-content" style="flex: 1 1 100%;">
-            <h1 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">Download <span style="color: #f59e0b;">Center</span></h1>
-            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 40px;">Download the latest versions of Titan Marketing Suite tools safely and directly.</p>
+            <h1 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">مركز <span style="color: #f59e0b;">التحميل</span></h1>
+            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 40px;">حمل أحدث إصدارات برامج وأدوات منصة ماركزيرا (Markzira) بروابط مباشرة وآمنة.</p>
 
-            <!-- هذه المنطقة سيتم ملؤها تلقائياً بالبرامج -->
             <div id="downloads-grid" class="grid"></div>
         </main>
     </div>
 
-    <!-- الفوتر -->
     <footer id="global-footer" style="background-color: #020617; border-top: 1px solid #1e293b;"></footer>
 
-    <!-- استدعاء الملفات -->
     <script src="shared-layout.js"></script>
     <script src="software-data.js"></script>
     
-    <!-- سكريبت تحويل البيانات إلى بطاقات مرئية -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const grid = document.getElementById('downloads-grid');
             
-            // قراءة البيانات من ملف softwareData
             softwareData.forEach(software => {
                 const card = document.createElement('div');
                 card.className = 'card';
@@ -45,7 +39,7 @@
                     <span style="background: rgba(245,158,11,0.1); color: #f59e0b; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold;">${software.version}</span>
                     <p style="color: #cbd5e1; margin: 20px 0; font-size: 0.95rem;">${software.description}</p>
                     <a href="${software.downloadLink}" class="btn-download">
-                        <i class="fas fa-download"></i> Download
+                        <i class="fas fa-download"></i> تحميل الآن
                     </a>
                 `;
                 grid.appendChild(card);
