@@ -1,20 +1,19 @@
-// هذا الملف يعمل كجدول بيانات. يمكنك إضافة أي برنامج جديد بنسخ القالب وتغيير البيانات.
+// جدول بيانات البرامج، يمكنك إضافة أي برنامج جديد بنسخ القالب وتغيير البيانات.
 
 const softwareData = [
     {
         id: 1,
         title: "TitanSender-pro",
-        version: "v1.0.9",
-        description: "Advanced bulk messaging and WhatsApp automation tool for marketing campaigns.",
+        version: "الإصدار v1.0.9",
+        description: "برنامج متقدم لإرسال الرسائل الجماعية وأتمتة الواتساب لإدارة حملاتك التسويقية باحترافية وتخطي الحظر.",
         icon: "fab fa-whatsapp",
         downloadLink: "https://github.com/shabanfox/TitanVelocity/releases/download/v1.0.9/titansender-pro.Setup.1.0.9.exe"
     },
-    // يمكنك إضافة البرامج الأخرى هنا بنفس الطريقة
     {
         id: 2,
-        title: "Smart Number Filter",
-        version: "v1.0.0",
-        description: "Easily sort, filter, and export valid numbers with high accuracy.",
+        title: "فلتر الأرقام الذكي",
+        version: "الإصدار v1.0.0",
+        description: "أداة لفرز وتصفية الأرقام واستخراج المتاح منها على الواتساب بدقة وسرعة عالية.",
         icon: "fas fa-filter",
         downloadLink: "#" 
     }
