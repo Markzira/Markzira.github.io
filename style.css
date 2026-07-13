@@ -21,9 +21,8 @@ body {
     max-width: 1250px;
     margin: 0 auto;
 }
-
 /* =========================================
-   2. شريط التنقل (Navbar)
+   2. شريط التنقل (Navbar) المتمركز
    ========================================= */
 nav {
     background-color: rgba(11, 17, 32, 0.95);
@@ -36,36 +35,67 @@ nav {
     backdrop-filter: blur(15px);
 }
 
-nav .container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
 }
 
-.logo {
+.nav-links {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* بيخليها على اليمين في العربي */
+    gap: 20px;
+}
+
+.nav-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     font-size: 1.8rem;
     font-weight: 900;
-    text-decoration: none;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
-.logo-icon {
-    color: #f59e0b;
-    font-size: 2rem;
+.nav-action {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* بيخليها على اليسار */
 }
 
 .logo-text {
-    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    background: linear-gradient(90deg, #10b981, #34d399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.logo-sub {
-    color: #e2e8f0;
+nav ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #10b981;
+}
+
+/* للموبايل: ترتيب الهيدر بشكل عمودي عشان ميبقاش زحمة */
+@media (max-width: 992px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links, .nav-logo, .nav-action {
+        flex: unset;
+        justify-content: center;
+        width: 100%;
+    }
+}
     font-weight: 600;
     font-size: 1.1rem;
 }
