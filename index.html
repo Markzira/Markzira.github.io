@@ -3,126 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markzira | ماركزيرا - المنصة الرسمية لبرامج التسويق</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>تيتان للبرمجيات | الحلول الأقوى لشركتك</title>
+    <!-- استدعاء خط Cairo من جوجل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* المتغيرات والألوان الأساسية للهوية القوية */
+        :root {
+            --bg-dark: #0f172a;        /* كحلي داكن جداً للخلفية */
+            --bg-card: #1e293b;        /* لون البطاقات */
+            --accent: #2563eb;         /* أزرق ساطع وقوي */
+            --accent-hover: #1d4ed8;
+            --text-main: #f8fafc;      /* أبيض ناصع للنصوص */
+            --text-muted: #94a3b8;     /* رمادي للنصوص الفرعية */
+        }
+
+        /* الإعدادات العامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* شريط التنقل (الناف بار) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-right: 25px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* الأزرار */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid var(--accent);
+            margin-right: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* قسم البداية (Hero Section) */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg-dark) 70%);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: -webkit-linear-gradient(45deg, #60a5fa, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* قسم المميزات */
+        .features-section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* الفوتر */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            margin-top: 50px;
+        }
+
+        /* استجابة الشاشات (Responsive) */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .btn-outline { margin-top: 15px; margin-right: 0; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav id="global-nav"></nav>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <a href="#" class="logo">تيتان <span>للبرمجيات</span></a>
+        <div class="nav-links">
+            <a href="#">الرئيسية</a>
+            <a href="#">برامجنا</a>
+            <a href="#">المميزات</a>
+            <a href="#">الأسعار</a>
+        </div>
+        <a href="#" class="btn btn-primary">ابدأ الآن</a>
+    </nav>
 
-    <div class="container page-layout">
-        <main class="main-content">
-            <h1 style="font-size: 3rem; color: #fff; margin-bottom: 20px;">مرحباً بك في منصة <span style="color: #f59e0b;">Markzira</span></h1>
-            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 40px;">الموطن الرسمي والحاضنة التقنية لأقوى برامج التسويق وحلول استخراج البيانات.</p>
+    <!-- القسم الرئيسي -->
+    <section class="hero">
+        <h1>سيطرة كاملة على أعمالك، بقوة برمجياتنا.</h1>
+        <p>نقدم لك أدوات برمجية مصممة خصيصاً لتسريع نمو شركتك، مضاعفة الأرباح، وحماية بياناتك بأعلى معايير الأمان العالمية.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">احصل على نسختك التجريبية</a>
+            <a href="#" class="btn btn-outline">اكتشف المميزات</a>
+        </div>
+    </section>
 
-            <section id="about-titan" style="background-color: #1e293b; padding: 30px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 40px; text-align: right;">
-                <h2 style="color: #f59e0b; margin-bottom: 15px; font-size: 1.8rem;">عن فريق Markzira وبرامجنا</h2>
-                <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;">
-                    منصة <strong>Markzira</strong> هي الواجهة التقنية الرائدة التي تحتضن وتطور أقوى الحلول البرمجية في السوق. نحن فريق برمجي متخصص نقدم بيئة متكاملة مصممة خصيصاً لتلبية احتياجات المبيعات والتسويق وتكبير حجم أعمالك بذكاء.
-                </p>
-            </section>
-
-            <section id="pricing" class="pricing-section" style="margin-bottom: 40px;">
-                <h2 style="color: #f59e0b; font-size: 2.2rem; margin-bottom: 10px;">خطط الأسعار</h2>
-                <p style="color: #94a3b8; font-size: 1.1rem;">اختر الباقة المناسبة لتكبير مبيعاتك وأتمتة شغلك بالكامل.</p>
-
-                <div class="pricing-grid">
-                    
-                    <div class="pricing-card">
-                        <h3>باقة البداية</h3>
-                        <div class="price">150 <span>ج.م / شهرياً</span></div>
-                        <span class="price-subtitle">مناسبة للمبتدئين</span>
-                        <ul class="pricing-features" style="text-align: right;">
-                            <li><i class="fas fa-check"></i> فلتر الأرقام الأساسي</li>
-                            <li><i class="fas fa-check"></i> استخراج داتا من جروبات الفيسبوك</li>
-                            <li><i class="fas fa-check"></i> دعم فني خلال 48 ساعة</li>
-                        </ul>
-                        <a href="https://wa.me/201092425540" class="btn-download" style="background: transparent; border: 2px solid #3b82f6; color: #3b82f6; box-shadow: none;">اشترك الآن</a>
-                    </div>
-
-                    <div class="pricing-card popular">
-                        <div class="popular-badge">الأكثر طلباً</div>
-                        <h3>TitanSender-pro</h3>
-                        <div class="price">300 <span>ج.م / شهرياً</span></div>
-                        <span class="price-subtitle">🔥 عرض حصري: 10 جنيه فقط يومياً!</span>
-                        <ul class="pricing-features" style="text-align: right;">
-                            <li><i class="fas fa-check"></i> إرسال آلاف رسائل الواتساب يومياً</li>
-                            <li><i class="fas fa-check"></i> تخطي وتجاوز حظر الأرقام بذكاء</li>
-                            <li><i class="fas fa-check"></i> رد آلي (شات بوت) متقدم</li>
-                            <li><i class="fas fa-check"></i> استخراج أرقام من خرائط جوجل</li>
-                            <li><i class="fas fa-check"></i> أولوية في الدعم الفني الفوري</li>
-                        </ul>
-                        <a href="https://wa.me/201092425540" class="btn-primary">احصل على العرض الآن</a>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3>باقة الشركات (لايف تايم)</h3>
-                        <div class="price">3000 <span>ج.م / مرة واحدة</span></div>
-                        <span class="price-subtitle">رخصة تشغيل مدى الحياة</span>
-                        <ul class="pricing-features" style="text-align: right;">
-                            <li><i class="fas fa-check"></i> جميع برامج Markzira</li>
-                            <li><i class="fas fa-check"></i> تحديثات مجانية مدى الحياة</li>
-                            <li><i class="fas fa-check"></i> رخصة تعمل على 3 أجهزة بنفس الوقت</li>
-                            <li><i class="fas fa-check"></i> جلسة زووم تدريبية لتدريب فريقك</li>
-                        </ul>
-                        <a href="https://wa.me/201092425540" class="btn-download" style="background: transparent; border: 2px solid #3b82f6; color: #3b82f6; box-shadow: none;">تواصل معنا للتعاقد</a>
-                    </div>
-
-                </div>
-            </section>
-
-            <div class="faq-accordion" style="text-align: right;">
-                <h2 style="color: #f59e0b; margin-bottom: 25px; font-size: 2rem;">الأسئلة الشائعة</h2>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>كيف يمكنني تفعيل البرامج بعد التحميل؟</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p style="padding: 15px;">بعد تحميل الأداة، تواصل مع الدعم الفني مباشرة عبر الواتساب لإرسال كود التفعيل الخاص بجهازك والحصول على رخصة التشغيل الفورية.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <span>هل تدعم برامج السحب والفلترة تحديثات دورية؟</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p style="padding: 15px;">نعم، جميع أدواتنا مستضافة وتعمل بنظام التحديث التلقائي لتجاوز أي تحديثات أمنية تطرأ على منصات التواصل الاجتماعي ومصادر البيانات.</p>
-                    </div>
-                </div>
+    <!-- قسم المميزات -->
+    <section class="features-section">
+        <h2 class="section-title">لماذا نحن الأقوى في السوق؟</h2>
+        <div class="features-grid">
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>أداء فائق السرعة</h3>
+                <p>برمجياتنا مبنية على أحدث التقنيات لضمان معالجة البيانات واستجابة النظام في أجزاء من الثانية، دون أي تأخير.</p>
             </div>
-        </main>
 
-        <aside class="sidebar">
-            </aside>
-    </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>أمان لا يخترق</h3>
+                <p>نستخدم تشفيراً من الدرجة العسكرية (AES-256) لحماية بيانات عملائك ومعلومات شركتك الحساسة من أي تهديدات.</p>
+            </div>
 
-    <footer id="global-footer" style="background-color: #020617; text-align: center; padding: 30px 0; border-top: 1px solid #1e293b;"></footer>
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>تكامل سلس</h3>
+                <p>اربط أنظمتنا مع أدواتك الحالية بضغطة زر. نظامنا مصمم ليتوافق مع كافة المنصات التي تستخدمها شركتك.</p>
+            </div>
 
-    <script src="shared-layout.js"></script>
-    <script>
-        // تفعيل حركة الأكورديون
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('i');
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    content.style.padding = "0 20px";
-                    icon.style.transform = "rotate(0deg)";
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.style.padding = "15px 20px";
-                    icon.style.transform = "rotate(180deg)";
-                }
-            });
-        });
-    </script>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>&copy; 2026 تيتان للبرمجيات. جميع الحقوق محفوظة.</p>
+    </footer>
+
 </body>
 </html>
