@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markzira | إحصائيات الإدارة المخفية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body style="padding: 50px;">
+
+    <div class="container">
+        <h1 style="color: #f59e0b; margin-bottom: 10px;">لوحة تحكم الإدارة (خاصة)</h1>
+        <p style="color: #94a3b8; margin-bottom: 40px;">هذه الصفحة تعرض الأرقام الفعلية المسحوبة مباشرة من سيرفرات GitHub.</p>
+
+        <div class="card" style="text-align: right; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #fff; border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px;">
+                إحصائيات تحميل TitanSender-pro
+            </h2>
+            
+            <div id="loading" style="color: #10b981;">جاري سحب البيانات الحقيقية من السيرفر...</div>
+            <div id="stats-content" style="display: none;">
+                <ul id="assets-list" style="list-style: none; padding: 0; color: #cbd5e1; line-height: 2;"></ul>
+                <h3 style="color: #f59e0b; margin-top: 20px; border-top: 1px solid #334155; padding-top: 15px;">
+                    إجمالي التحميلات الفعلية: <span id="total-downloads">0</span>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // سكريبت لسحب بيانات التحميل الحقيقية من المستودع الخاص بك
+        const repoName = "shabanfox/TitanVelocity"; // اسم المستودع الذي رفعنا عليه البرنامج
+        
+        fetch(`https://api.github.com/repos/${repoName}/releases`)
+            .then(response => response.json())
+            .then(data => {
+                let total = 0;
+                const list = document.getElementById('assets-list');
+                
+                // البحث في الإصدارات والملفات المرفوعة
+                data.forEach(release => {
+                    release.assets.forEach(asset => {
+                        total += asset.download_count;
+                        
+                        // عرض كل ملف وعدد مرات تحميله
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${asset.name}</strong>: تم تحميله <span style="color:#10b981;">${asset.download_count}</span> مرة`;
+                        list.appendChild(li);
+                    });
+                });
+                
+                document.getElementById('total-downloads').innerText = total;
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('stats-content').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('loading').innerText = "حدث خطأ في جلب البيانات. تأكد من اسم المستودع.";
+                document.getElementById('loading').style.color = "red";
+            });
+    </script>
+</body>
+</html>
