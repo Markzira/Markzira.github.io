@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الأفلييت | Markzira</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="downloads.html">مركز التحميل</a></li>
+                <li><a href="affiliate.html" class="active">نظام الأفلييت</a></li>
+            </ul>
+            <a href="index.html" class="logo-center">
+                <i class="fas fa-meteor logo-icon"></i>
+                <span class="logo-text">Mark</span><span class="logo-sub">zira</span>
+            </a>
+            <div class="nav-actions">
+                <a href="#" class="login-btn-nav" style="border-color:#10b981; color:#10b981;">حسابي: Shaban</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 130px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 20px; margin-bottom: 30px;">
+            <div>
+                <h1 style="font-size: 2.5rem; color: #fff;">لوحة تحكم المسوقين (Affiliate)</h1>
+                <p style="color: #94a3b8; font-size: 1.1rem;">سوق لبرامجنا واحصل على عمولات مجزية عن كل مبيعة.</p>
+            </div>
+            <button class="btn-full" style="width: auto; padding: 10px 20px;">سحب الأرباح</button>
+        </div>
+
+        <!-- الإحصائيات -->
+        <div class="dashboard-stats">
+            <div class="stat-box" style="border-top: 4px solid #3b82f6;">
+                <h3>إجمالي النقرات</h3>
+                <div class="value" style="color: #3b82f6;">1,245</div>
+            </div>
+            <div class="stat-box" style="border-top: 4px solid #10b981;">
+                <h3>المبيعات الناجحة</h3>
+                <div class="value" style="color: #10b981;">42</div>
+            </div>
+            <div class="stat-box" style="border-top: 4px solid #f59e0b;">
+                <h3>أرباحك الحالية</h3>
+                <div class="value" style="color: #f59e0b;">$840.00</div>
+            </div>
+        </div>
+
+        <!-- رابط الإحالة -->
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: right;">
+            <h3 style="color: #fff; margin-bottom: 15px;"><i class="fas fa-link" style="color:#f59e0b;"></i> رابط الإحالة الخاص بك</h3>
+            <p style="color: #94a3b8; margin-bottom: 15px;">قم بنسخ هذا الرابط ومشاركته مع عملائك. أي عملية شراء تتم من خلاله ستُضاف عمولتها إلى حسابك تلقائياً.</p>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" value="https://markzira.com/ref/shaban1092" readonly 
+                       style="flex: 1; padding: 15px; background: #0f172a; border: 1px solid #334155; color: #10b981; border-radius: 8px; font-size: 1.1rem; direction: ltr;">
+                <button class="btn-full" style="width: auto;" onclick="alert('تم نسخ الرابط بنجاح!')"><i class="fas fa-copy"></i> نسخ</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
