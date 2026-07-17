@@ -17,7 +17,7 @@ const softwareData = [
         downloadLink: "#" 
            },
     {
-        id: 2,
+        id: 3,
         title: "مستخرج الداتا من الفيس بوك",
         version: "الإصدار v55.0.0",
         description: "أداة للنشر واسخراج الداتا من الفيس بوك بدقة وسرعة عالية.",
