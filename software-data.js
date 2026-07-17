@@ -15,6 +15,14 @@ const softwareData = [
         description: "أداة لفرز وتصفية الأرقام واستخراج المتاح منها على الواتساب بدقة وسرعة عالية.",
         icon: "fas fa-filter",
         downloadLink: "#" 
+           },
+    {
+        id: 2,
+        title: "مستخرج الداتا من الفيس بوك",
+        version: "الإصدار v55.0.0",
+        description: "أداة للنشر واسخراج الداتا من الفيس بوك بدقة وسرعة عالية.",
+        icon: "fas fa-filter",
+        downloadLink: "https://github.com/shabanfox/facebooooooock/releases/download/v55.0/Titan.FB.Marketer.exe" 
     }
 ];
 
