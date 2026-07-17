@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل البرنامج | Markzira</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav style="top: 0;">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-meteor logo-icon"></i>
+                <span class="logo-text">Mark</span>
+                <span class="logo-sub">zira</span>
+            </a>
+            <ul>
+                <li><a href="downloads.html">العودة لمركز التحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="padding: 130px 0 40px;">
+        <div class="container">
+            <h1 id="prog-title" style="font-size: 3rem; color: #fff; margin-bottom: 10px;">جاري التحميل...</h1>
+            <p id="prog-version" style="color: #f59e0b; font-size: 1.2rem; margin-bottom: 20px;"></p>
+        </div>
+    </header>
+
+    <section class="section-padding" style="padding: 20px 0 60px;">
+        <div class="container page-layout" style="padding-top: 0;">
+            
+            <!-- الجزء اليمين: التفاصيل والمميزات -->
+            <main class="main-content" style="background: #1e293b; padding: 40px; border-radius: 12px; border: 1px solid #334155;">
+                <h2 style="color: #10b981; margin-bottom: 20px; font-size: 1.8rem;">عن البرنامج</h2>
+                <p id="prog-desc" style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.9; margin-bottom: 40px;"></p>
+                
+                <h2 style="color: #3b82f6; margin-bottom: 20px; font-size: 1.8rem;">أهم المميزات</h2>
+                <ul id="prog-features" style="color: #94a3b8; font-size: 1rem; line-height: 2.2; list-style-position: inside; margin-bottom: 20px; list-style-type: none;">
+                    <!-- المميزات هتظهر هنا أوتوماتيك -->
+                </ul>
+            </main>
+
+            <!-- الجزء الشمال: خطة الاشتراك والتحميل -->
+            <aside class="sidebar" style="text-align: center; height: fit-content; top: 120px;">
+                <div style="background: rgba(16, 185, 129, 0.1); width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;">
+                    <i id="prog-icon" class="fas fa-box fa-3x" style="color:#10b981;"></i>
+                </div>
+                
+                <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.4rem; border-bottom: none;">خطة الاشتراك</h3>
+                <p id="prog-price" style="color: #f59e0b; font-size: 1.1rem; font-weight: bold; margin-bottom: 30px;"></p>
+                
+                <a id="prog-download" href="#" class="btn-download" style="display: none; margin-bottom: 15px;">
+                    <i class="fas fa-cloud-download-alt"></i> تحميل نسخة البرنامج
+                </a>
+                
+                <a id="prog-subscribe" href="#" class="login-btn-nav" style="display: block; width: 100%; text-align: center; background: #25d366; color: #fff !important; border-color: #25d366; padding: 12px; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp"></i> اشترك أو استفسر الآن
+                </a>
+            </aside>
+            
+        </div>
+    </section>
+
+    <footer style="background-color: #020617; text-align: center; padding: 30px 0; border-top: 1px solid #1e293b;">
+        <div class="container">
+            <p style="margin-bottom: 10px; color: #fff;">© 2026 Markzira Platform - المظلة التقنية لبرامج Titan Marketing Suite.</p>
+        </div>
+    </footer>
+
+    <!-- ربط ملف البيانات (أهم خطوة عشان الصفحة تقرأ البرامج) -->
+    <script src="software-data.js"></script>
+    
+    <!-- السكريبت اللي بياخد الـ ID من الرابط ويعرض البيانات -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            
+            if (id && typeof softwareData !== 'undefined') {
+                const software = softwareData.find(s => s.id == id);
+                
+                if (software) {
+                    // تفريغ البيانات في الأماكن المخصصة
+                    document.getElementById('prog-title').innerText = software.title;
+                    document.getElementById('prog-version').innerText = software.version;
+                    document.getElementById('prog-desc').innerText = software.longDescription;
+                    document.getElementById('prog-icon').className = software.icon + ' fa-3x';
+                    document.getElementById('prog-price').innerText = software.price;
+                    document.getElementById('prog-subscribe').href = software.subscribeLink;
+                    
+                    // إظهار زرار التحميل لو فيه رابط مباشر غير علامة الشباك
+                    if (software.downloadLink && software.downloadLink !== '#') {
+                        const downloadBtn = document.getElementById('prog-download');
+                        downloadBtn.style.display = 'block';
+                        downloadBtn.href = software.downloadLink;
+                    }
+                    
+                    // رسم المميزات
+                    const featuresList = document.getElementById('prog-features');
+                    featuresList.innerHTML = '';
+                    if (software.features && software.features.length > 0) {
+                        software.features.forEach(feature => {
+                            const li = document.createElement('li');
+                            li.innerHTML = '<i class="fas fa-check-circle" style="color:#10b981; margin-left: 10px;"></i>' + feature;
+                            featuresList.appendChild(li);
+                        });
+                    }
+                } else {
+                    document.getElementById('prog-title').innerText = "البرنامج غير موجود";
+                    document.getElementById('prog-desc').innerText = "يبدو أن الرابط غير صحيح أو تم إزالة البرنامج.";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
