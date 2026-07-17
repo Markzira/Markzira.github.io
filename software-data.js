@@ -7,10 +7,9 @@ const softwareData = [
         description: "برنامج متقدم لإرسال الرسائل الجماعية وأتمتة الواتساب لإدارة حملاتك التسويقية باحترافية وتخطي الحظر.",
         icon: "fab fa-whatsapp",
         downloadLink: "https://github.com/shabanfox/TitanVelocity/releases/download/v1.0.9/titansender-pro.Setup.1.0.9.exe",
-        // البيانات الجديدة لصفحة التفاصيل:
         longDescription: "TitanSender-pro هو الحل الأمثل للشركات والمسوقين لإدارة حملات الواتساب. يوفر لك القدرة على إرسال آلاف الرسائل بضغطة زر مع نظام ذكي لتخطي الحظر، إدارة الردود التلقائية، وفلترة الأرقام لضمان وصول رسالتك للجمهور المستهدف باحترافية تامة.",
         features: ["إرسال رسائل غير محدودة وتخطي الحظر الذكي", "التحكم في الفواصل الزمنية بين الرسائل", "تقارير مفصلة فورية بعد انتهاء الحملة", "دعم إرسال المرفقات (صور، ملفات، فيديوهات)"],
-        price: "... باقة اشتراك شهرية فردية (500 جنية بدلا من 650 جنية لفترة محدودة - شاملة التحديثات",
+        price: "باقة اشتراك شهرية فردية (500 جنية بدلاً من 650 جنية لفترة محدودة) - شاملة التحديثات",
         subscribeLink: "https://wa.me/201092425540"
     },
     {
@@ -34,7 +33,7 @@ const softwareData = [
         downloadLink: "https://github.com/shabanfox/facebooooooock/releases/download/v55.0/Titan.FB.Marketer.exe",
         longDescription: "برنامج شامل للتحكم في حسابات فيسبوك المتعددة، واستخراج بيانات العملاء المهتمين من المجموعات والصفحات، بالإضافة إلى قدرته على جدولة المنشورات التلقائية لزيادة التفاعل.",
         features: ["سحب داتا العملاء من المجموعات والصفحات", "النشر التلقائي في الجروبات لتسويق منتجك", "إدارة وتدوير حسابات فيسبوك متعددة", "استخراج الأرقام والإيميلات من المنشورات"],
-        price: "باقة اشتراك شهرية ب600 جنية بدلا من 900 جنية",
+        price: "باقة اشتراك شهرية بـ 600 جنية بدلاً من 900 جنية",
         subscribeLink: "https://wa.me/201092425540"
     }
 ];
@@ -52,8 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <h3 style="color: #fff; margin-bottom: 5px;">${software.title}</h3>
                 <span style="display: block; color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;">${software.version}</span>
-                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 25px;">${software.description}</p>
-                <!-- التعديل هنا: الزرار بيوجه لصفحة التفاصيل -->
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">${software.description}</p>
+                
+                <!-- السطر الجديد اللي هيعرض السعر في الكارت من بره -->
+                <p style="color: #10b981; font-weight: bold; font-size: 0.95rem; margin-bottom: 25px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                    <i class="fas fa-tag"></i> ${software.price}
+                </p>
+
                 <a href="details.html?id=${software.id}" class="btn-download" style="background: linear-gradient(90deg, #3b82f6, #2563eb);">
                     <i class="fas fa-info-circle"></i> التفاصيل والاشتراك
                 </a>
