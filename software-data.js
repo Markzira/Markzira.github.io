@@ -18,7 +18,7 @@ const softwareData = [
            },
     {
         id: 3,
-        title: "مستخرج الداتا من الفيس بوك",
+        title: "Titan.FB.Marketer",
         version: "الإصدار v55.0.0",
         description: "أداة للنشر واسخراج الداتا من الفيس بوك بدقة وسرعة عالية.",
         icon: "fas fa-filter",
