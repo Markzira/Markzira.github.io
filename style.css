@@ -1,357 +1,137 @@
 /* =========================================
-   1. الإعدادات العامة (Reset & Typography)
+   9. شريط العروض (Promo Banner)
    ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #0b1120; /* كحلي داكن جداً - هوية Scrapixy */
-    color: #f8fafc;
-    line-height: 1.7;
-    direction: rtl; /* دعم اللغة العربية */
-}
-
-.container {
-    width: 92%;
-    max-width: 1250px;
-    margin: 0 auto;
-}
-
-/* =========================================
-   2. شريط التنقل (Navbar)
-   ========================================= */
-nav {
-    background-color: rgba(11, 17, 32, 0.95);
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #334155;
-    backdrop-filter: blur(15px);
-}
-
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; 
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    text-decoration: none;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-icon {
-    color: #f59e0b;
-    font-size: 2rem;
-}
-
-.logo-text {
-    background: linear-gradient(90deg, #f59e0b, #fbbf24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.logo-sub {
-    color: #e2e8f0;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-nav ul li a {
-    color: #cbd5e1;
-    text-decoration: none;
+.promo-banner {
+    background: linear-gradient(90deg, #ef4444, #b91c1c); /* لون أحمر ناري ملفت */
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 800;
+    position: relative;
+    z-index: 1001; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    animation: pulseBanner 2s infinite;
+}
+
+@keyframes pulseBanner {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.promo-btn {
+    background: #fff;
+    color: #b91c1c;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #f59e0b;
-}
-
-.login-btn-nav {
-    background: transparent;
-    border: 2px solid #f59e0b;
-    color: #f59e0b !important;
-    padding: 6px 15px;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.login-btn-nav:hover {
-    background: #f59e0b;
-    color: #0b1120 !important;
+.promo-btn:hover {
+    background: #fca5a5;
+    color: #991b1b;
 }
 
 /* =========================================
-   3. تخطيط الصفحة (Layout)
+   10. خطط الأسعار (Pricing Tables)
    ========================================= */
-.page-layout {
-    display: flex;
-    gap: 30px;
-    padding-top: 110px; 
-    padding-bottom: 60px;
-    align-items: flex-start;
-}
-
-.main-content {
-    flex: 1 1 70%; 
-}
-
-.sidebar {
-    flex: 1 1 30%; 
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    position: sticky;
-    top: 100px;
-}
-
-/* =========================================
-   4. قسم البرامج (Grid & Cards)
-   ========================================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
-
-.card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    transition: all 0.3s ease;
+.pricing-section {
+    padding: 60px 0;
     text-align: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px 20px;
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
 
-.card::before {
-    content: '';
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.15);
+}
+
+/* تمييز الباقة الأكثر مبيعاً */
+.pricing-card.popular {
+    border-color: var(--primary);
+    background: linear-gradient(145deg, var(--bg-card), var(--bg-card-alt));
+    transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.popular-badge {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: #f59e0b;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.card:hover::before {
-    transform: scaleX(1);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
-    border-color: #f59e0b;
-}
-
-/* =========================================
-   5. القائمة الجانبية (Sidebar Items)
-   ========================================= */
-.sidebar h3 {
-    color: #f59e0b;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    border-bottom: 2px solid #334155;
-    padding-bottom: 10px;
-}
-
-.sidebar-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    padding: 12px;
-    background: #0f172a;
-    border-radius: 8px;
-    transition: 0.3s;
-    border: 1px solid transparent;
-}
-
-.sidebar-item:hover {
-    transform: translateX(-5px);
-    border-color: #f59e0b;
-}
-
-.sidebar-item i {
-    font-size: 1.5rem;
-    color: #3b82f6;
-}
-
-.sidebar-item-info h4 {
-    font-size: 1rem;
+    top: 25px;
+    right: -35px;
+    background: var(--primary);
     color: #fff;
-    margin-bottom: 3px;
-}
-
-.sidebar-item-info p {
-    font-size: 0.8rem;
-    color: #94a3b8;
-}
-
-/* =========================================
-   6. صفحة التحميل والأمان (Downloads)
-   ========================================= */
-.trust-badge {
-    background: rgba(255, 255, 255, 0.05);
-    color: #cbd5e1;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    backdrop-filter: blur(5px);
-    margin: 5px;
-}
-
-.trust-badge i {
-    color: #10b981;
-}
-
-.btn-download {
-    display: block;
-    width: 100%;
-    background: linear-gradient(90deg, #10b981, #059669);
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.85rem;
     font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-    margin-top: 15px;
 }
 
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+.pricing-card h3 {
+    font-size: 1.5rem;
     color: #fff;
+    margin-bottom: 10px;
 }
 
-/* =========================================
-   7. صفحة تسجيل الدخول (Auth)
-   ========================================= */
-.auth-wrapper {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, #1e293b 0%, #0b1120 100%);
-    padding: 100px 20px 40px;
+.price {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 900;
+    margin-bottom: 5px;
 }
 
-.auth-card {
-    background: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+.price span {
+    font-size: 1rem;
+    color: var(--text-gray);
+    font-weight: normal;
 }
 
-.input-group {
+.price-subtitle {
+    color: #10b981;
+    font-size: 0.95rem;
+    font-weight: bold;
     margin-bottom: 20px;
+    display: block;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 30px;
     text-align: right;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
+.pricing-features li {
+    margin-bottom: 12px;
     color: #cbd5e1;
+    font-size: 0.95rem;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    background: #0f172a;
-    color: #fff;
-    outline: none;
-    transition: 0.3s;
-}
-
-.input-group input:focus {
-    border-color: #f59e0b;
-}
-
-.btn-full {
-    width: 100%;
-    background: linear-gradient(90deg, #f59e0b, #d97706);
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-full:hover {
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-}
-
-/* =========================================
-   8. التجاوب مع الشاشات والموبايل (Responsive)
-   ========================================= */
-@media (max-width: 992px) {
-    .page-layout {
-        flex-direction: column;
-        padding-top: 140px;
-    }
-    
-    .sidebar {
-        width: 100%;
-        position: static; 
-    }
-
-    nav .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav ul {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero h1, .main-content h1 { font-size: 2.2rem !important; }
-    .logo { font-size: 1.5rem; }
-    .grid { grid-template-columns: 1fr; } 
-    .auth-card { padding: 30px 20px; }
+.pricing-features li i {
+    color: var(--success);
+    margin-left: 8px;
 }
