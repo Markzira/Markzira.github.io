@@ -1,6 +1,10 @@
 /* =========================================
-   1. الإعدادات العامة (Reset & Typography)
+   Markzira - Aurora Titan Ultimate Theme
+   Designed by: Gemini 
    ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,348 +14,251 @@
 }
 
 body {
-    background-color: #0b1120; /* كحلي داكن جداً - هوية Scrapixy */
-    color: #f8fafc;
+    background-color: #030305;
+    color: #F8FAFC;
     line-height: 1.7;
-    direction: rtl; /* دعم اللغة العربية */
+    direction: rtl;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+/* الإضاءات الخلفية المتحركة */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: -1;
+    opacity: 0.35;
+    animation: pulseGlow 15s infinite alternate;
+}
+body::before { top: -20%; right: -10%; background: #00E5FF; }
+body::after { bottom: -20%; left: -10%; background: #B026FF; animation-delay: -7s; }
+
+@keyframes pulseGlow {
+    0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+    100% { transform: scale(1.1) translate(30px, 30px); opacity: 0.4; }
 }
 
 .container {
-    width: 92%;
+    width: 90%;
     max-width: 1250px;
     margin: 0 auto;
+    position: relative;
 }
 
 /* =========================================
-   2. شريط التنقل (Navbar)
+   شريط التنقل الزجاجي العائم (Floating Navbar)
    ========================================= */
 nav {
-    background-color: rgba(11, 17, 32, 0.95);
-    padding: 15px 0;
+    background: rgba(15, 15, 20, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 12px 30px;
     position: fixed;
-    width: 100%;
-    top: 0;
+    width: 95%;
+    max-width: 1300px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
-    border-bottom: 1px solid #334155;
-    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
 }
 
 nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 900;
     text-decoration: none;
-    letter-spacing: 1px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.logo-icon {
-    color: #f59e0b;
-    font-size: 2rem;
-}
+.logo-icon { color: #00E5FF; filter: drop-shadow(0 0 8px rgba(0,229,255,0.6)); }
 
 .logo-text {
-    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    background: linear-gradient(90deg, #00E5FF, #B026FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.logo-sub { color: #E2E8F0; font-weight: 600; font-size: 1rem; }
 
-.logo-sub {
-    color: #e2e8f0;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
+nav ul { list-style: none; display: flex; gap: 25px; align-items: center; }
 
 nav ul li a {
-    color: #cbd5e1;
+    color: #CBD5E1;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
     transition: 0.3s;
+    position: relative;
 }
-
-nav ul li a:hover {
-    color: #f59e0b;
+nav ul li a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; right: 0; background: #00E5FF;
+    transition: width 0.3s ease;
 }
+nav ul li a:hover::after { width: 100%; }
+nav ul li a:hover { color: #fff; }
 
 .login-btn-nav {
-    background: transparent;
-    border: 2px solid #f59e0b;
-    color: #f59e0b !important;
-    padding: 6px 15px;
-    border-radius: 6px;
-    font-weight: bold;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid #00E5FF;
+    color: #00E5FF !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0,229,255,0.2);
 }
-
+.login-btn-nav::after { display: none; }
 .login-btn-nav:hover {
-    background: #f59e0b;
-    color: #0b1120 !important;
+    background: #00E5FF; color: #000 !important;
+    box-shadow: 0 0 25px rgba(0,229,255,0.6); transform: translateY(-2px);
 }
 
 /* =========================================
-   3. تخطيط الصفحة (Layout)
+   تخطيط الصفحة والنصوص
    ========================================= */
-.page-layout {
-    display: flex;
-    gap: 30px;
-    padding-top: 110px; 
-    padding-bottom: 60px;
-    align-items: flex-start;
-}
-
-.main-content {
-    flex: 1 1 70%; 
-}
-
-.sidebar {
-    flex: 1 1 30%; 
-    background: #1e293b;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    position: sticky;
-    top: 100px;
-}
+.page-layout { padding-top: 150px; padding-bottom: 80px; display: flex; gap: 40px; }
+.main-content { flex: 1 1 70%; }
+h1, h2 { color: #fff; font-weight: 900; }
+h1 span, h2 span { color: #00E5FF; text-shadow: 0 0 15px rgba(0,229,255,0.4); }
 
 /* =========================================
-   4. قسم البرامج (Grid & Cards)
+   الكروت الزجاجية (Glass Cards)
    ========================================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
 
 .card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 35px 25px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 229, 255, 0.15);
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.3);
 }
 
 .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: #f59e0b;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.card:hover::before {
-    transform: scaleX(1);
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(0,229,255,0.1), transparent 70%);
+    opacity: 0; transition: opacity 0.4s ease; z-index: -1;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.15);
-    border-color: #f59e0b;
+    transform: translateY(-12px);
+    border-color: rgba(0, 229, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0,229,255,0.15);
+}
+.card:hover::before { opacity: 1; }
+
+/* الأزرار (Buttons) */
+.btn-download, .btn-full {
+    display: block; width: 100%;
+    background: linear-gradient(90deg, #00E5FF, #0088FF);
+    color: #000 !important;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0,229,255,0.3);
+    margin-top: 20px;
+    cursor: pointer;
+}
+.btn-download:hover, .btn-full:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0,229,255,0.5);
 }
 
 /* =========================================
-   5. القائمة الجانبية (Sidebar Items)
+   القائمة الجانبية (Sidebar)
    ========================================= */
-.sidebar h3 {
-    color: #f59e0b;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    border-bottom: 2px solid #334155;
-    padding-bottom: 10px;
+.sidebar {
+    flex: 1 1 30%;
+    background: rgba(15, 15, 20, 0.4);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 120px;
 }
+.sidebar h3 { color: #B026FF; margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
 
 .sidebar-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-    padding: 12px;
-    background: #0f172a;
-    border-radius: 8px;
+    display: flex; align-items: center; gap: 15px;
+    margin-bottom: 15px; padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px; border: 1px solid transparent;
     transition: 0.3s;
-    border: 1px solid transparent;
 }
-
 .sidebar-item:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(176,38,255,0.4);
     transform: translateX(-5px);
-    border-color: #f59e0b;
 }
-
-.sidebar-item i {
-    font-size: 1.5rem;
-    color: #3b82f6;
-}
-
-.sidebar-item-info h4 {
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 3px;
-}
-
-.sidebar-item-info p {
-    font-size: 0.8rem;
-    color: #94a3b8;
-}
+.sidebar-item i { font-size: 1.6rem; color: #B026FF; }
+.sidebar-item-info h4 { color: #fff; font-size: 1rem; }
+.sidebar-item-info p { color: #A0A5B5; font-size: 0.85rem; }
 
 /* =========================================
-   6. صفحة التحميل والأمان (Downloads)
+   صفحات الدخول والثقة
    ========================================= */
 .trust-badge {
-    background: rgba(255, 255, 255, 0.05);
-    color: #cbd5e1;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 0.95rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    background: rgba(0, 229, 255, 0.05);
+    color: #E2E8F0;
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: 1px solid rgba(0,229,255,0.2);
+    display: inline-flex; align-items: center; gap: 10px;
     backdrop-filter: blur(5px);
-    margin: 5px;
 }
+.trust-badge i { color: #00E5FF; }
 
-.trust-badge i {
-    color: #10b981;
-}
-
-.btn-download {
-    display: block;
-    width: 100%;
-    background: linear-gradient(90deg, #10b981, #059669);
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-    margin-top: 15px;
-}
-
-.btn-download:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-    color: #fff;
-}
-
-/* =========================================
-   7. صفحة تسجيل الدخول (Auth)
-   ========================================= */
 .auth-wrapper {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, #1e293b 0%, #0b1120 100%);
-    padding: 100px 20px 40px;
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 120px 20px 40px;
 }
-
 .auth-card {
-    background: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 15px;
+    background: rgba(15, 15, 20, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    width: 100%; max-width: 480px; text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: right;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #cbd5e1;
-}
-
 .input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    background: #0f172a;
-    color: #fff;
-    outline: none;
-    transition: 0.3s;
+    background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+    color: #fff; padding: 15px; border-radius: 12px; font-size: 1rem;
 }
-
-.input-group input:focus {
-    border-color: #f59e0b;
-}
-
-.btn-full {
-    width: 100%;
-    background: linear-gradient(90deg, #f59e0b, #d97706);
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-full:hover {
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-}
+.input-group input:focus { border-color: #00E5FF; box-shadow: 0 0 10px rgba(0,229,255,0.2); }
 
 /* =========================================
-   8. التجاوب مع الشاشات والموبايل (Responsive)
+   التجاوب مع الموبايل
    ========================================= */
 @media (max-width: 992px) {
-    .page-layout {
-        flex-direction: column;
-        padding-top: 140px;
-    }
-    
-    .sidebar {
-        width: 100%;
-        position: static; 
-    }
-
-    nav .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav ul {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero h1, .main-content h1 { font-size: 2.2rem !important; }
-    .logo { font-size: 1.5rem; }
-    .grid { grid-template-columns: 1fr; } 
-    .auth-card { padding: 30px 20px; }
+    .page-layout { flex-direction: column; padding-top: 140px; }
+    .sidebar { width: 100%; position: static; }
+    nav { width: 100%; border-radius: 0; top: 0; padding: 10px 15px; }
+    nav .container { flex-direction: column; gap: 15px; }
 }
