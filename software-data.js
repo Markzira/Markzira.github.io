@@ -1,4 +1,4 @@
-// جدول بيانات البرامج، ضفتلك فيه خانات للتفاصيل والمميزات والسعر
+// جدول بيانات البرامج
 const softwareData = [
     {
         id: 1,
@@ -10,7 +10,8 @@ const softwareData = [
         longDescription: "TitanSender-pro هو الحل الأمثل للشركات والمسوقين لإدارة حملات الواتساب. يوفر لك القدرة على إرسال آلاف الرسائل بضغطة زر مع نظام ذكي لتخطي الحظر، إدارة الردود التلقائية، وفلترة الأرقام لضمان وصول رسالتك للجمهور المستهدف باحترافية تامة.",
         features: ["إرسال رسائل غير محدودة وتخطي الحظر الذكي", "التحكم في الفواصل الزمنية بين الرسائل", "تقارير مفصلة فورية بعد انتهاء الحملة", "دعم إرسال المرفقات (صور، ملفات، فيديوهات)"],
         price: "باقة اشتراك شهرية فردية (500 جنية بدلاً من 650 جنية لفترة محدودة) - شاملة التحديثات",
-        subscribeLink: "https://wa.me/201092425540"
+        subscribeLink: "201092425540", // شيلنا اللينك وحطينا الرقم بس عشان هنبرمج الرسالة
+        videoLink: "https://www.youtube.com/embed/مثال_لرابط_الفيديو" // حط رابط اليوتيوب هنا (Embed)
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ const softwareData = [
         longDescription: "أداة خفيفة وسريعة جداً لمعالجة قوائم الأرقام الكبيرة، وتقسيمها إلى أرقام متاحة على واتساب وأرقام غير متاحة، مما يوفر وقتك ويضمن نجاح حملاتك التسويقية.",
         features: ["سرعة فائقة في فلترة آلاف الأرقام", "حفظ الأرقام الصالحة في ملفات Excel أو TXT", "واجهة استخدام بسيطة وسهلة", "دعم الأرقام الدولية والمحلية"],
         price: "أداة مجانية (مرفقة مع الباقات المدفوعة)",
-        subscribeLink: "https://wa.me/201092425540"
+        subscribeLink: "201092425540",
+        videoLink: "" // لو مفيش فيديو سيبها فاضية كده
     },
     {
         id: 3,
@@ -34,7 +36,8 @@ const softwareData = [
         longDescription: "برنامج شامل للتحكم في حسابات فيسبوك المتعددة، واستخراج بيانات العملاء المهتمين من المجموعات والصفحات، بالإضافة إلى قدرته على جدولة المنشورات التلقائية لزيادة التفاعل.",
         features: ["سحب داتا العملاء من المجموعات والصفحات", "النشر التلقائي في الجروبات لتسويق منتجك", "إدارة وتدوير حسابات فيسبوك متعددة", "استخراج الأرقام والإيميلات من المنشورات"],
         price: "باقة اشتراك شهرية بـ 600 جنية بدلاً من 900 جنية",
-        subscribeLink: "https://wa.me/201092425540"
+        subscribeLink: "201092425540",
+        videoLink: "" // لو مفيش فيديو سيبها فاضية كده
     }
 ];
 
@@ -52,12 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3 style="color: #fff; margin-bottom: 5px;">${software.title}</h3>
                 <span style="display: block; color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;">${software.version}</span>
                 <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">${software.description}</p>
-                
-                <!-- السطر الجديد اللي هيعرض السعر في الكارت من بره -->
                 <p style="color: #10b981; font-weight: bold; font-size: 0.95rem; margin-bottom: 25px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
                     <i class="fas fa-tag"></i> ${software.price}
                 </p>
-
                 <a href="details.html?id=${software.id}" class="btn-download" style="background: linear-gradient(90deg, #3b82f6, #2563eb);">
                     <i class="fas fa-info-circle"></i> التفاصيل والاشتراك
                 </a>
