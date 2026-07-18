@@ -33,7 +33,7 @@
     <section class="section-padding" style="padding: 20px 0 60px;">
         <div class="container page-layout" style="padding-top: 0;">
             
-            <!-- الجزء اليمين: التفاصيل والمميزات -->
+            <!-- الجزء اليمين: التفاصيل والمميزات والفيديو -->
             <main class="main-content" style="background: #1e293b; padding: 40px; border-radius: 12px; border: 1px solid #334155;">
                 <h2 style="color: #10b981; margin-bottom: 20px; font-size: 1.8rem;">عن البرنامج</h2>
                 <p id="prog-desc" style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.9; margin-bottom: 40px;"></p>
@@ -42,6 +42,14 @@
                 <ul id="prog-features" style="color: #94a3b8; font-size: 1rem; line-height: 2.2; list-style-position: inside; margin-bottom: 20px; list-style-type: none;">
                     <!-- المميزات هتظهر هنا أوتوماتيك -->
                 </ul>
+
+                <!-- قسم الفيديو (مخفي افتراضياً، هيظهر لو البرنامج ليه رابط فيديو) -->
+                <div id="video-section" style="display: none; margin-top: 40px;">
+                    <h2 style="color: #f59e0b; margin-bottom: 20px; font-size: 1.8rem;">شرح البرنامج</h2>
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid #10b981;">
+                        <iframe id="prog-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </main>
 
             <!-- الجزء الشمال: خطة الاشتراك والتحميل -->
@@ -57,7 +65,8 @@
                     <i class="fas fa-cloud-download-alt"></i> تحميل نسخة البرنامج
                 </a>
                 
-                <a id="prog-subscribe" href="#" class="login-btn-nav" style="display: block; width: 100%; text-align: center; background: #25d366; color: #fff !important; border-color: #25d366; padding: 12px; font-size: 1.1rem;">
+                <!-- زرار الواتساب (برمجناه يفتح رسالة جاهزة) -->
+                <a id="prog-subscribe" href="#" target="_blank" class="login-btn-nav" style="display: block; width: 100%; text-align: center; background: #25d366; color: #fff !important; border-color: #25d366; padding: 12px; font-size: 1.1rem;">
                     <i class="fab fa-whatsapp"></i> اشترك أو استفسر الآن
                 </a>
             </aside>
@@ -71,10 +80,10 @@
         </div>
     </footer>
 
-    <!-- ربط ملف البيانات (أهم خطوة عشان الصفحة تقرأ البرامج) -->
+    <!-- ربط ملف البيانات -->
     <script src="software-data.js"></script>
     
-    <!-- السكريبت اللي بياخد الـ ID من الرابط ويعرض البيانات -->
+    <!-- السكريبت المطور -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -84,22 +93,29 @@
                 const software = softwareData.find(s => s.id == id);
                 
                 if (software) {
-                    // تفريغ البيانات في الأماكن المخصصة
                     document.getElementById('prog-title').innerText = software.title;
                     document.getElementById('prog-version').innerText = software.version;
                     document.getElementById('prog-desc').innerText = software.longDescription;
                     document.getElementById('prog-icon').className = software.icon + ' fa-3x';
                     document.getElementById('prog-price').innerText = software.price;
-                    document.getElementById('prog-subscribe').href = software.subscribeLink;
                     
-                    // إظهار زرار التحميل لو فيه رابط مباشر غير علامة الشباك
+                    // 1. برمجة رسالة الواتساب الذكية
+                    // هنا بناخد اسم البرنامج ونحطه في الرسالة، وبنعمل encode عشان المسافات والحروف العربي تتبعت صح
+                    const waMessage = encodeURIComponent(`أهلاً، أنا مهتم بالاشتراك في برنامج ${software.title} من منصة Markzira، محتاج أعرف تفاصيل الدفع والتفعيل.`);
+                    document.getElementById('prog-subscribe').href = `https://wa.me/${software.subscribeLink}?text=${waMessage}`;
+                    
                     if (software.downloadLink && software.downloadLink !== '#') {
                         const downloadBtn = document.getElementById('prog-download');
                         downloadBtn.style.display = 'block';
                         downloadBtn.href = software.downloadLink;
                     }
+
+                    // 2. تفعيل قسم الفيديو لو موجود
+                    if (software.videoLink && software.videoLink.trim() !== "") {
+                        document.getElementById('video-section').style.display = 'block';
+                        document.getElementById('prog-video').src = software.videoLink;
+                    }
                     
-                    // رسم المميزات
                     const featuresList = document.getElementById('prog-features');
                     featuresList.innerHTML = '';
                     if (software.features && software.features.length > 0) {
@@ -109,9 +125,6 @@
                             featuresList.appendChild(li);
                         });
                     }
-                } else {
-                    document.getElementById('prog-title').innerText = "البرنامج غير موجود";
-                    document.getElementById('prog-desc').innerText = "يبدو أن الرابط غير صحيح أو تم إزالة البرنامج.";
                 }
             }
         });
