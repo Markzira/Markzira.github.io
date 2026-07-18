@@ -4,22 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الرئيسية | Markzira Platform</title>
-    <!-- ربط ملف التنسيقات -->
     <link rel="stylesheet" href="style.css">
-    <!-- خطوط جوجل (Cairo) -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-
-    <!-- الشريط العلوي للتنبيهات -->
-    <div style="background: #10b981; color: #fff; text-align: center; padding: 8px; font-size: 0.9rem; font-weight: bold;">
-        <i class="fas fa-rocket"></i> ضاعف مبيعاتك الآن مع أحدث أدوات Titan Marketing Suite
-    </div>
+<body style="height: 100vh; display: flex; flex-direction: column;">
 
     <!-- شريط التنقل (Navbar) -->
-    <nav style="top: 38px;">
+    <nav style="top: 0;">
         <div class="container">
             <a href="index.html" class="logo">
                 <i class="fas fa-meteor logo-icon"></i>
@@ -28,91 +20,65 @@
             </a>
             <ul>
                 <li><a href="index.html" style="color:#f59e0b;">الرئيسية</a></li>
-                <li><a href="downloads.html">مركز التحميل</a></li>
-                <li><a href="#consultation">الاستشارات</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- القسم الافتتاحي (Hero Section) -->
-    <header class="hero" style="padding: 150px 0 80px; text-align: center;">
-        <div class="container">
-            <h1 style="font-size: 3.5rem; color: #fff; margin-bottom: 20px;">منصة <span style="color: #3b82f6;">Markzira</span> للحلول الذكية</h1>
-            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                المظلة التقنية الشاملة لبرمجيات <strong>Titan Marketing Suite</strong>. 
-                اكتشف أدواتنا المصممة خصيصاً لأتمتة التسويق، استخراج البيانات، وإدارة حملاتك باحترافية للوصول إلى عملائك المستهدفين بأقل مجهود.
-            </p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="downloads.html" class="btn-download" style="background: #10b981; padding: 15px 30px; font-size: 1.1rem;">
-                    <i class="fas fa-download"></i> تصفح برامج التسويق
-                </a>
-                <a href="#consultation" class="btn-download" style="background: transparent; border: 2px solid #3b82f6; color: #3b82f6; padding: 15px 30px; font-size: 1.1rem;">
-                    <i class="fas fa-headset"></i> تواصل معنا
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- قسم إصدارات Titan المتاحة (ديناميكي) -->
-    <section class="section-padding">
-        <div class="container">
-            <h2 style="text-align: center; color: #fff; margin-bottom: 10px; font-size: 2.5rem;">إصدارات <span style="color: #10b981;">Titan</span> المتاحة</h2>
-            <p style="text-align: center; color: #64748b; margin-bottom: 50px;">أقوى أدوات النشر والسحب التلقائي وتخطي الحظر</p>
+    <!-- القسم الرئيسي (بوابة الدخول) -->
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 120px 0 60px;">
+        <div class="container" style="text-align: center;">
             
-            <!-- الصندوق الذي ستظهر فيه البرامج أوتوماتيكياً -->
-            <div id="home-titan-container" class="grid">
-                <!-- يتم جلب البيانات من software-data.js -->
-            </div>
+            <h1 style="font-size: 3rem; color: #fff; margin-bottom: 15px;">مرحباً بك في <span style="color: #3b82f6;">Markzira</span></h1>
+            <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 50px;">بوابتك للحلول التقنية، برمجيات التسويق، والاستشارات المتخصصة.</p>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="downloads.html" style="color: #3b82f6; font-size: 1.1rem; text-decoration: underline; font-weight: bold;">
-                    عرض جميع البرامج والتحديثات <i class="fas fa-arrow-left"></i>
+            <!-- أزرار التوجيه للأقسام (بدون سكرول) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                
+                <!-- بوابة برامج Titan -->
+                <a href="downloads.html" class="card" style="text-decoration: none; border-top: 4px solid #10b981; transition: transform 0.3s; display: block;">
+                    <div style="background: rgba(16, 185, 129, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;">
+                        <i class="fas fa-robot fa-2x" style="color:#10b981;"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 10px;">Titan Marketing Suite</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 0;">برمجيات أتمتة الواتساب وسحب الداتا لزيادة مبيعاتك.</p>
                 </a>
+
+                <!-- بوابة الاستشارات -->
+                <a href="consultation.html" class="card" style="text-decoration: none; border-top: 4px solid #3b82f6; transition: transform 0.3s; display: block;">
+                    <div style="background: rgba(59, 130, 246, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;">
+                        <i class="fas fa-chart-line fa-2x" style="color:#3b82f6;"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 10px;">الاستشارات والمبيعات</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 0;">حلول واستراتيجيات تسويق عقاري وخطط بيعية احترافية.</p>
+                </a>
+
+                <!-- بوابة المشاريع الترفيهية/الأخرى -->
+                <a href="projects.html" class="card" style="text-decoration: none; border-top: 4px solid #f59e0b; transition: transform 0.3s; display: block;">
+                    <div style="background: rgba(245, 158, 11, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;">
+                        <i class="fas fa-layer-group fa-2x" style="color:#f59e0b;"></i>
+                    </div>
+                    <h3 style="color: #fff; margin-bottom: 10px;">مشاريع وحلول أخرى</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 0;">استكشف مشاريعنا المتنوعة وصناعة المحتوى الترفيهي.</p>
+                </a>
+
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- قسم مشاريع وحلول أخرى (ديناميكي) -->
-    <section class="section-padding" style="background: #020617; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b;">
+    <!-- الفوتر -->
+    <footer style="background-color: #020617; text-align: center; padding: 20px 0; border-top: 1px solid #1e293b;">
         <div class="container">
-            <h2 style="text-align: center; color: #fff; margin-bottom: 10px; font-size: 2.5rem;">مشاريع وحلول <span style="color: #f59e0b;">أخرى</span></h2>
-            <p style="text-align: center; color: #64748b; margin-bottom: 50px;">تعرف على تنوع خدماتنا في مجالات التقنية والتسويق</p>
-            
-            <!-- الصندوق الذي ستظهر فيه المشاريع أوتوماتيكياً -->
-            <div id="home-projects-container" class="grid">
-                <!-- يتم جلب البيانات من software-data.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الاستشارات وطلب المساعدة (جديد) -->
-    <section id="consultation" class="section-padding">
-        <div class="container" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 50px; border-radius: 15px; border: 1px solid #334155; text-align: center;">
-            <div style="background: rgba(59, 130, 246, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px;">
-                <i class="fas fa-chart-line fa-2x" style="color:#3b82f6;"></i>
-            </div>
-            <h2 style="color: #fff; margin-bottom: 20px; font-size: 2rem;">محتاج خطة تسويقية لمشروعك؟</h2>
-            <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.8;">
-                سواء كنت تبحث عن استراتيجية لزيادة مبيعاتك، أو تحتاج إلى استشارة متخصصة في التسويق العقاري وإدارة الحملات، يمكنك حجز جلستك الاستشارية مباشرة مع خبير التسويق <strong>شعبان العوضي</strong>.
-            </p>
-            <a href="https://wa.me/201092425540?text=أهلاً أستاذ شعبان، أرغب في حجز استشارة تسويقية لمشروعي." target="_blank" class="btn-download" style="background: #25d366; display: inline-block; padding: 12px 30px;">
-                <i class="fab fa-whatsapp"></i> تواصل عبر الواتساب الآن
-            </a>
-        </div>
-    </section>
-
-    <!-- الفوتر (تذييل الصفحة) -->
-    <footer style="background-color: #020617; text-align: center; padding: 30px 0; border-top: 1px solid #1e293b;">
-        <div class="container">
-            <p style="margin-bottom: 10px; color: #fff;">© 2026 Markzira Platform - إحدى ابتكارات فريق Scrapixy.</p>
-            <p style="color: #64748b; font-size: 0.9rem;">
-                <i class="fas fa-code" style="color: #3b82f6;"></i> تم التطوير لخدمة رواد الأعمال والمسوقين
-            </p>
+            <p style="margin-bottom: 0; color: #64748b; font-size: 0.9rem;">© 2026 Markzira Platform.</p>
         </div>
     </footer>
 
-    <!-- ربط ملف البيانات (مهم جداً لتشغيل الأقسام الديناميكية) -->
-    <script src="software-data.js"></script>
+    <!-- تأثير بسيط عند المرور بالماوس على الكروت -->
+    <style>
+        .card:hover {
+            transform: translateY(-10px);
+            background-color: #1e293b;
+        }
+    </style>
 
 </body>
 </html>
