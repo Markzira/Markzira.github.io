@@ -100,7 +100,6 @@
                     document.getElementById('prog-price').innerText = software.price;
                     
                     // 1. برمجة رسالة الواتساب الذكية
-                    // هنا بناخد اسم البرنامج ونحطه في الرسالة، وبنعمل encode عشان المسافات والحروف العربي تتبعت صح
                     const waMessage = encodeURIComponent(`أهلاً، أنا مهتم بالاشتراك في برنامج ${software.title} من منصة Markzira، محتاج أعرف تفاصيل الدفع والتفعيل.`);
                     document.getElementById('prog-subscribe').href = `https://wa.me/${software.subscribeLink}?text=${waMessage}`;
                     
@@ -110,10 +109,21 @@
                         downloadBtn.href = software.downloadLink;
                     }
 
-                    // 2. تفعيل قسم الفيديو لو موجود
+                    // 2. تفعيل قسم الفيديو وتحويل الرابط أوتوماتيك لـ Embed
                     if (software.videoLink && software.videoLink.trim() !== "") {
                         document.getElementById('video-section').style.display = 'block';
-                        document.getElementById('prog-video').src = software.videoLink;
+                        
+                        let finalVideoUrl = software.videoLink;
+                        // لو الرابط بالشكل المختصر youtu.be
+                        if (finalVideoUrl.includes("youtu.be/")) {
+                            finalVideoUrl = finalVideoUrl.replace("youtu.be/", "www.youtube.com/embed/");
+                        } 
+                        // لو الرابط بالشكل العادي العريض watch?v=
+                        else if (finalVideoUrl.includes("watch?v=")) {
+                            finalVideoUrl = finalVideoUrl.replace("watch?v=", "embed/");
+                        }
+                        
+                        document.getElementById('prog-video').src = finalVideoUrl;
                     }
                     
                     const featuresList = document.getElementById('prog-features');
