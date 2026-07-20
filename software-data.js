@@ -16,7 +16,7 @@ const softwareData = [
     {
         id: 2,
         title: "فلتر الأرقام الذكي",
-        version: "الإصدار v1.0.0",
+        version: "الإصدار v1.0.2",
         description: "أداة لفرز وتصفية الأرقام ,واضافة كود الدولة وتقسيم الشيت لعدد من الشيت .",
         icon: "fas fa-filter",
         downloadLink: "https://github.com/shabanfox/-/releases/download/fil/SmartNumberFilter.exe",
