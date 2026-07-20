@@ -19,7 +19,7 @@ const softwareData = [
         version: "الإصدار v1.0.0",
         description: "أداة لفرز وتصفية الأرقام ,واضافة كود الدولة وتقسيم الشيت لعدد من الشيت .",
         icon: "fas fa-filter",
-        downloadLink: "https://github.com/shabanfox/-/releases/download/filter_app.py/SmartNumberFilter.py",
+        downloadLink: "https://github.com/shabanfox/-/releases/download/fil/SmartNumberFilter.exe",
         longDescription: "أداة خفيفة وسريعة جداً لمعالجة قوائم الأرقام الكبيرة، وتقسيمها إلى أرقام متاحة على واتساب وأرقام غير متاحة، مما يوفر وقتك ويضمن نجاح حملاتك التسويقية.",
         features: ["سرعة فائقة في فلترة آلاف الأرقام", "حفظ الأرقام الصالحة في ملفات Excel أو TXT", "واجهة استخدام بسيطة وسهلة", "دعم الأرقام الدولية والمحلية"],
         price: "أداة مجانية (مرفقة مع الباقات المدفوعة)",
