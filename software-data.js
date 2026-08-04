@@ -38,9 +38,9 @@ const softwareData = [
         price: "باقة اشتراك شهرية بـ 500 جنية بدلاً من 900 جنية",
         subscribeLink: "201202342403",
         videoLink: "" 
-    }
-];
-        id: 3,
+    },
+    {
+        id: 4,
         title: "Titan.FB.Marketer",
         version: "الإصدار v55.0.0",
         description: "أداة للنشر واستخراج الداتا من الفيس بوك بدقة وسرعة عالية.",
