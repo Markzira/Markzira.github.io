@@ -29,10 +29,10 @@ const softwareData = [
     {
         id: 3,
         title: "Titanium_Marketing",
-        version: "الإصدار v1.0.5.1",
+        version: "الإصدار v1.0.5.6",
         description: "اداة شاملة ومتكاملة  بدقة وسرعة عالية.",
         icon: "fab fa-facebook",
-        downloadLink: "https://github.com/shabanfox/-2026/archive/refs/tags/v2.0.5.1.zip",
+        downloadLink: "https://github.com/Titan-Marketing-Suite/Titan-Marketing-Suite.github.io/releases/download/1.0.5.6/Titanium_Marketing.zip",
         longDescription: "برنامج شامل للتحكم في حسابات فيسبوك المتعددة، واستخراج بيانات العملاء المهتمين من المجموعات والصفحات، بالإضافة إلى قدرته على جدولة المنشورات التلقائية لزيادة التفاعل.",
         features: ["سحب داتا العملاء من المجموعات والصفحات", "النشر التلقائي في الجروبات لتسويق منتجك", "إدارة وتدوير حسابات فيسبوك متعددة", "استخراج الأرقام والإيميلات من المنشورات"],
         price: "باقة اشتراك شهرية بـ 500 جنية بدلاً من 900 جنية",
