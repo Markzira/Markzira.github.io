@@ -3,10 +3,10 @@ const softwareData = [
     {
         id: 1,
         title: "TitanSender-pro",
-        version: "الإصدار v1.0.11",
+        version: "الإصدار v1.0.11.1",
         description: "برنامج متقدم لإرسال الرسائل الجماعية وأتمتة الواتساب لإدارة حملاتك التسويقية باحترافية وتخطي الحظر.",
         icon: "fab fa-whatsapp",
-        downloadLink: "https://github.com/shabanfox/TitanVelocity/releases/download/1.0.11/titansender-pro.Setup.1.0.11.exe",
+        downloadLink: "https://github.com/shabanfox/TitanVelocity/releases/download/1.0.11.1/titansender-pro.Setup.1.0.11.exe",
         longDescription: "TitanSender-pro هو الحل الأمثل للشركات والمسوقين لإدارة حملات الواتساب. يوفر لك القدرة على إرسال آلاف الرسائل بضغطة زر مع نظام ذكي لتخطي الحظر، إدارة الردود التلقائية، وفلترة الأرقام لضمان وصول رسالتك للجمهور المستهدف باحترافية تامة.",
         features: ["إرسال رسائل غير محدودة وتخطي الحظر الذكي", "التحكم في الفواصل الزمنية بين الرسائل", "تقارير مفصلة فورية بعد انتهاء الحملة", "دعم إرسال المرفقات (صور، ملفات، فيديوهات)"],
         price: "باقة اشتراك شهرية فردية (500 جنية بدلاً من 650 جنية لفترة محدودة) - شاملة التحديثات",
